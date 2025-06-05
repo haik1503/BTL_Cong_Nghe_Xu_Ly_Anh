@@ -1,22 +1,24 @@
-# NHẬN DIỆN KHUÔN MẶT CẢNH BÁO NGƯỜI LẠ VÀO VÙNG KIỂM SOÁT CỦA CAMERA 
+# NHẬN DIỆN KHUÔN MẶT CẢNH BÁO NGƯỜI LẠ VÀO VÙNG KIỂM SOÁT CỦA CAMERA
 
-## Giới thiệu
+## Giới thiệu chung
 
-Đây là ứng dụng Python sử dụng OpenCV, face_recognition và giao diện Tkinter để nhận diện khuôn mặt qua camera IP (RTSP). Khi phát hiện người lạ, hệ thống sẽ:
+Ứng dụng giúp nhận diện khuôn mặt qua camera IP, phát hiện người lạ và cảnh báo qua Telegram, đồng thời ghi lại video sự kiện. Hệ thống phù hợp cho giám sát an ninh tại nhà, văn phòng, kho xưởng...
 
-- Phát cảnh báo âm thanh (báo động).
+## Sơ đồ hệ thống & các chức năng
+
+```
+[Camera IP] ---> [Phần mềm nhận diện khuôn mặt] ---> [Báo động âm thanh]
+                                              |---> [Gửi ảnh cảnh báo Telegram]
+                                              |---> [Ghi & lưu video sự kiện]
+                                              |---> [Giao diện xem trực tiếp & quản lý video]
+```
+
+**Chức năng chính:**
+- Nhận diện khuôn mặt so với dữ liệu đã biết.
+- Phát hiện người lạ, phát âm thanh cảnh báo.
 - Gửi ảnh cảnh báo qua Telegram.
-- Tự động ghi lại video sự kiện.
-- Lưu trữ và cho phép xem lại các video đã ghi.
-- Giao diện trực quan, dễ sử dụng.
-
-## Chức năng chính
-
-- **Nhận diện khuôn mặt:** So sánh khuôn mặt xuất hiện với thư viện ảnh đã biết.
-- **Cảnh báo người lạ:** Khi phát hiện người lạ, phát âm thanh cảnh báo và gửi ảnh qua Telegram.
-- **Ghi & lưu video:** Tự động ghi lại video khi phát hiện người lạ, lưu file dưới dạng `.avi`.
-- **Xem lại video:** Danh sách video được lưu, có thể chọn để xem lại ngay trên giao diện.
-- **Giao diện người dùng:** Giao diện Tkinter thân thiện, dễ thao tác.
+- Tự động ghi và lưu video khi phát hiện người lạ.
+- Xem lại video sự kiện trên giao diện.
 
 ## Bảng công nghệ sử dụng
 
@@ -72,12 +74,15 @@
 
 ## Hướng mở rộng trong tương lai
 
-- Hỗ trợ nhận diện nhiều camera cùng lúc.
-- Tích hợp lưu trữ đám mây cho video và ảnh cảnh báo.
-- Thêm chức năng quản lý người dùng qua giao diện.
-- Cải thiện tốc độ nhận diện với GPU hoặc model deep learning nâng cao.
-- Thêm chức năng nhận diện hành vi bất thường.
-- Tích hợp gửi cảnh báo qua nhiều nền tảng khác (Zalo, Email...).
+| Định hướng mở rộng                                      | Mô tả ngắn                                      |
+|--------------------------------------------------------|-------------------------------------------------|
+| Nhận diện nhiều camera                                 | Hỗ trợ giám sát nhiều khu vực cùng lúc           |
+| Lưu trữ đám mây                                        | Tự động upload video/ảnh lên cloud               |
+| Quản lý người dùng                                     | Thêm/xóa/sửa người dùng qua giao diện            |
+| Tăng tốc nhận diện                                     | Sử dụng GPU hoặc model deep learning nâng cao     |
+| Nhận diện hành vi bất thường                           | Phát hiện các hành động lạ, xâm nhập bất hợp pháp |
+| Đa nền tảng cảnh báo                                   | Gửi cảnh báo qua Zalo, Email, SMS...             |
+
 
 ---
 
